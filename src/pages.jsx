@@ -1,9 +1,18 @@
 import { LoremIpsum } from 'react-lorem-ipsum';
+import { Link } from 'react-router-dom';
 
 export const Home = () => (
   <div>
     <h1>Welkom!</h1>
-    <p>Hier is nog niet zoveel te zien.</p>
+    <p>Kies één van de volgende links:</p>
+    <ul>
+      <li>
+        <Link to='/over'>Over ons</Link>
+      </li>
+      <li>
+        <Link to='/contact'>Contact</Link>
+      </li>
+    </ul>
   </div>
 );
 
@@ -25,9 +34,7 @@ export const NotFound = () => {
   return (
     <div>
       <h1>Pagina niet gevonden</h1>
-      <p>
-        Er is geen pagina met op deze url, probeer iets anders.
-      </p>
+      <p>Er is geen pagina met op deze url, probeer iets anders.</p>
     </div>
   );
 };
