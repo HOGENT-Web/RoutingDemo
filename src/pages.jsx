@@ -1,5 +1,5 @@
 import { LoremIpsum } from 'react-lorem-ipsum';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const Home = () => (
   <div>
@@ -31,10 +31,12 @@ export const Contact = () => (
 );
 
 export const NotFound = () => {
+  const { pathname } = useLocation();
+
   return (
     <div>
       <h1>Pagina niet gevonden</h1>
-      <p>Er is geen pagina met op deze url, probeer iets anders.</p>
+      <p>Er is geen pagina met als url {pathname}, probeer iets anders.</p>
     </div>
   );
 };
