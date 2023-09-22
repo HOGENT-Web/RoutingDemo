@@ -1,5 +1,5 @@
 import { LoremIpsum } from 'react-lorem-ipsum';
-import { Link, useLocation, Outlet } from 'react-router-dom';
+import { Link, useLocation, Outlet, useParams } from 'react-router-dom';
 
 export const Home = () => (
   <div>
@@ -75,36 +75,67 @@ export const Location = () => (
   </div>
 );
 
-// const products = [{
-//   id: 1,
-//   name: 'Confituur',
-//   price: 2.50
-// }, {
-//   id: 2,
-//   name: 'Choco',
-//   price: 3.50
-// }, {
-//   id: 3,
-//   name: 'Coco-cola',
-//   price: 3.20
-// }, {
-//   id: 4,
-//   name: 'Fanta',
-//   price: 3.00
-// }, {
-//   id: 5,
-//   name: 'Sprite',
-//   price: 2.90
-// }];
+const products = [
+  {
+    id: 1,
+    name: 'Confituur',
+    price: 2.5,
+  },
+  {
+    id: 2,
+    name: 'Choco',
+    price: 3.5,
+  },
+  {
+    id: 3,
+    name: 'Coco-cola',
+    price: 3.2,
+  },
+  {
+    id: 4,
+    name: 'Fanta',
+    price: 3.0,
+  },
+  {
+    id: 5,
+    name: 'Sprite',
+    price: 2.9,
+  },
+];
 
-// export const Products = () => (
-//   <div>
-//     <ul>
-//       {products.map(({ id, name }) => (
-//         <li key={id}>
-//           {name}
-//         </li>
-//       ))}
-//     </ul>
-//   </div>
-// );
+export const Products = () => (
+  <div>
+    <ul>
+      {products.map(({ id, name }) => (
+        <li key={id}>
+          <Link to={`/products/${id}`}>{name}</Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+export const Product = () => {
+  const { id } = useParams();
+  const idAsNumber = Number(id);
+
+  const product = products.find((p) => p.id === idAsNumber);
+
+  if (!product) {
+    return (
+      <div>
+        <h1>Product niet gevonden</h1>
+        <p>Er is geen product met id {id}.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <h1>{product.name}</h1>
+      <p>
+        <b>Price:</b> &euro; {product.price}
+      </p>
+    </div>
+  );
+};

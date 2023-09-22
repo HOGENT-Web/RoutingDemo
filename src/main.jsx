@@ -14,6 +14,8 @@ import {
   Services,
   History,
   Location,
+  Products,
+  Product,
 } from './pages.jsx';
 
 const router = createBrowserRouter([
@@ -37,6 +39,19 @@ const router = createBrowserRouter([
       {
         path: 'location',
         element: <Location />,
+      },
+    ],
+  },
+  {
+    path: '/products',
+    children: [
+      {
+        index: true,
+        element: <Products />,
+      },
+      {
+        path: ':id',
+        element: <Product />,
       },
     ],
   },
