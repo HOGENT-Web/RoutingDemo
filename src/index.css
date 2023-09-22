@@ -29,3 +29,7 @@ nav li {
 nav ul li a:hover {
   background-color: darkblue;
 }
+
+nav a.active {
+  color: darkblue;
+}

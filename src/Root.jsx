@@ -1,4 +1,9 @@
-import { Outlet, Link, useNavigate, ScrollRestoration } from 'react-router-dom';
+import {
+  Outlet,
+  NavLink,
+  useNavigate,
+  ScrollRestoration,
+} from 'react-router-dom';
 
 export default function Root() {
   const navigate = useNavigate();
@@ -12,16 +17,16 @@ export default function Root() {
       <nav>
         <ul>
           <li>
-            <Link to='/'>Home</Link>
+            <NavLink to='/'>Home</NavLink>
           </li>
           <li>
-            <Link to='/over'>Over ons</Link>
+            <NavLink to='/over'>Over ons</NavLink>
           </li>
           <li>
-            <Link to='/contact'>Contact</Link>
+            <NavLink to='/contact'>Contact</NavLink>
           </li>
           <li>
-            <Link to='/products'>Products</Link>
+            <NavLink to='/products'>Products</NavLink>
           </li>
         </ul>
       </nav>
