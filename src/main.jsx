@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from 'react-router-dom';
 import {
   NotFound,
   About,
@@ -36,6 +40,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+  { path: 'services', element: <Navigate to='/over/services' replace /> },
   { path: 'contact', element: <Contact /> },
   { path: '*', element: <NotFound /> },
 ]);
