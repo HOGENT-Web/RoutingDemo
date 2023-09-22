@@ -1,6 +1,12 @@
-import { Outlet, Link, ScrollRestoration } from 'react-router-dom';
+import { Outlet, Link, useNavigate, ScrollRestoration } from 'react-router-dom';
 
 export default function Root() {
+  const navigate = useNavigate();
+
+  const handleGoHome = () => {
+    navigate('/', { replace: true });
+  };
+
   return (
     <div>
       <nav>
@@ -20,6 +26,7 @@ export default function Root() {
         </ul>
       </nav>
       <Outlet />
+      <button onClick={handleGoHome}>Go home!</button>
       <ScrollRestoration />
     </div>
   );
