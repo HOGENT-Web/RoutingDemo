@@ -17,47 +17,57 @@ import {
   Products,
   Product,
 } from './pages.jsx';
+import Root from './Root.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
-    errorElement: <NotFound />,
-  },
-  {
-    path: 'over',
-    element: <About />,
-    children: [
-      {
-        path: 'services',
-        element: <Services />,
-      },
-      {
-        path: 'history',
-        element: <History />,
-      },
-      {
-        path: 'location',
-        element: <Location />,
-      },
-    ],
-  },
-  {
-    path: '/products',
+    element: <Root />,
     children: [
       {
         index: true,
-        element: <Products />,
+        element: <Home />,
       },
       {
-        path: ':id',
-        element: <Product />,
+        path: '/',
+        element: <Home />,
       },
+      {
+        path: 'over',
+        element: <About />,
+        children: [
+          {
+            path: 'services',
+            element: <Services />,
+          },
+          {
+            path: 'history',
+            element: <History />,
+          },
+          {
+            path: 'location',
+            element: <Location />,
+          },
+        ],
+      },
+      { path: 'contact', element: <Contact /> },
+      { path: 'services', element: <Navigate to='/over/services' replace /> },
+      {
+        path: '/products',
+        children: [
+          {
+            index: true,
+            element: <Products />,
+          },
+          {
+            path: ':id',
+            element: <Product />,
+          },
+        ],
+      },
+      { path: '*', element: <NotFound /> },
     ],
   },
-  { path: 'services', element: <Navigate to='/over/services' replace /> },
-  { path: 'contact', element: <Contact /> },
-  { path: '*', element: <NotFound /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
