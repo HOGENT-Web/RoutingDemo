@@ -1,5 +1,5 @@
 import { LoremIpsum } from 'react-lorem-ipsum';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, Outlet } from 'react-router-dom';
 
 export const Home = () => (
   <div>
@@ -20,6 +20,19 @@ export const About = () => (
   <div>
     <h1>Over ons</h1>
     <LoremIpsum p={2} />
+
+    <ul>
+      <li>
+        <Link to='/over/services'>Onze diensten</Link>
+      </li>
+      <li>
+        <Link to='/over/history'>Geschiedenis</Link>
+      </li>
+      <li>
+        <Link to='/over/location'>Locatie</Link>
+      </li>
+    </ul>
+    <Outlet />
   </div>
 );
 
@@ -41,26 +54,26 @@ export const NotFound = () => {
   );
 };
 
-// export const Services = () => (
-//   <div>
-//     <h1>Our services</h1>
-//     <LoremIpsum p={2} />
-//   </div>
-// );
+export const Services = () => (
+  <div>
+    <h1>Our services</h1>
+    <LoremIpsum p={2} />
+  </div>
+);
 
-// export const History = () => (
-//   <div>
-//     <h1>History</h1>
-//     <LoremIpsum p={2} />
-//   </div>
-// );
+export const History = () => (
+  <div>
+    <h1>History</h1>
+    <LoremIpsum p={2} />
+  </div>
+);
 
-// export const Location = () => (
-//   <div>
-//     <h1>Location</h1>
-//     <LoremIpsum p={2} />
-//   </div>
-// );
+export const Location = () => (
+  <div>
+    <h1>Location</h1>
+    <LoremIpsum p={2} />
+  </div>
+);
 
 // const products = [{
 //   id: 1,
