@@ -1,8 +1,18 @@
-# React + Vite
+# RoutingDemo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Requirements
 
-Currently, two official plugins are available:
+- [NodeJS v20.6 or higher](https://nodejs.org/)
+- [Yarn](https://yarnpkg.com/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+For users of [Chocolatey](https://chocolatey.org/):
+
+```powershell
+choco install nodejs -y
+choco install yarn -y
+```
+
+## Start this project
+
+- Install all dependencies: `yarn`
+- Start the development server: `yarn start`
